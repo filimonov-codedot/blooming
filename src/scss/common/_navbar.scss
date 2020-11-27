@@ -1,0 +1,482 @@
+.navbar {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+  //background-image: linear-gradient($black, rgba($black, .9), rgba($black, .8), rgba($black, .4), transparent);
+
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: -50px;
+    right: -50px;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    transition: .5s ease;
+    border-radius: 50% 50% 50% 50%;
+    box-shadow: 0 0 0 0 transparent;
+    border: 0;
+  }
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 42px;
+  padding-bottom: 46px;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+
+    &__image {
+      position: relative;
+      display: inline-flex;
+      width: 98.75px;
+      height: 20px;
+
+      svg {
+        width: 98.75px;
+        height: 20px;
+        fill: $white;
+      }
+    }
+
+    &__dot-icon {
+      position: absolute;
+      top: 0.9px;
+      left: 64.6px;
+      display: inline-flex;
+      width: 3.64px;
+      height: 3.31px;
+      pointer-events: none;
+      transform: translateY(-1000%);
+
+      svg {
+        width: 3.64px;
+        height: 3.31px;
+        fill: $primary;
+      }
+
+      &.down {
+        animation: 1s linear 0s 1 reverse both running easeInBounce;
+      }
+    }
+  }
+
+  .hamburger-wrapper {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 36px;
+    height: 20px;
+    cursor: pointer;
+    pointer-events: auto;
+
+    .hamburger {
+      position: relative;
+      display: flex;
+      width: 16px;
+      height: 2px;
+      margin-left: 8px;
+      transition: .5s ease-in-out;
+      transform-origin: center;
+      background: $primary;
+
+      &:after,
+      &:before {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        display: block;
+        height: 100%;
+        content: "";
+        transition: .5s ease-in-out;
+        background: $white;
+      }
+
+      &:before {
+        top: -7px;
+        width: 8px;
+      }
+
+      &:after {
+        bottom: -7px;
+        width: 24px;
+      }
+    }
+
+    &.active .hamburger {
+      background: transparent;
+
+      &:after {
+        bottom: 0;
+        width: 20.63px;
+        transform: rotate(45deg);
+        background: $black;
+      }
+
+      &:before {
+        top: 0;
+        width: 20.63px;
+        transform: rotate(-45deg);
+        background: $black;
+      }
+    }
+  }
+}
+
+.navbar-right {
+  display: none;
+  color: $black;
+
+  .works {
+    pointer-events: auto;
+  }
+
+  .social {
+    display: flex;
+    pointer-events: auto;
+  }
+
+  .contact {
+    display: flex;
+
+    .email {
+      pointer-events: auto;
+    }
+
+    .email-link {
+      color: inherit;
+    }
+  }
+
+  .phone-link {
+    pointer-events: auto;
+  }
+}
+
+@media (min-width: 576px) {
+  .navbar-left {
+    padding-top: 42px;
+    padding-bottom: 108px;
+
+    .logo {
+      &__image {
+        width: 182px;
+        height: 37px;
+
+        svg {
+          width: 182px;
+          height: 37px;
+        }
+      }
+
+      &__dot-icon {
+        top: 1.66px;
+        left: 119px;
+        width: 6.71px;
+        height: 6.12px;
+
+        svg {
+          width: 6.71px;
+          height: 6.12px;
+        }
+      }
+    }
+
+    .hamburger-wrapper {
+      width: 48px;
+      height: 36px;
+
+      .hamburger {
+        width: 24px;
+        height: 2px;
+        margin-left: 12px;
+
+        &:before {
+          top: -11px;
+          width: 12px;
+        }
+
+        &:after {
+          bottom: -11px;
+          width: 36px;
+        }
+      }
+
+      &.active .hamburger {
+        &:after {
+          width: 30.63px;
+        }
+
+        &:before {
+          width: 30.63px;
+        }
+      }
+    }
+  }
+
+  .navbar-right {
+    .works .social-title,
+    .contact .contact-title {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 108px;
+  }
+
+  .navbar-left {
+    width: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .hamburger-wrapper {
+      display: none;
+    }
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    color: $white;
+
+    .phone-link {
+      order: -1;
+      margin-right: 103px;
+    }
+
+    .works {
+      margin-right: 36px;
+    }
+
+    .social a {
+      margin-right: 21px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .contact {
+      position: fixed;
+      right: 0;
+      bottom: 90px;
+      left: 0;
+
+      .address {
+        margin-bottom: 7px;
+      }
+
+      .email-link {
+        color: $primary;
+        position: relative;
+        transition: all 0.3s;
+        padding-bottom: 5px;
+        z-index: 2;
+
+        &:before {
+          content: " ";
+          position: absolute;
+          border-bottom: solid 2px $primary;
+          bottom: 0;
+          left: 0;
+          margin: 0 auto;
+          transition: width 0.3s;
+          z-index: -1;
+          width: 0;
+        }
+      }
+    }
+  }
+
+  .glitch-link:hover .email-link::before {
+    border-bottom: solid 2px $primary;
+    width: 100%;
+    left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar.sidebar-open + .main {
+    overflow: hidden;
+  }
+
+  .navbar.sidebar-open {
+    bottom: 0;
+    background-image: none;
+    overflow: hidden;
+
+    &:after {
+      top: -10rem;
+      left: -10rem;
+      width: calc(100% + 20rem);
+      height: calc(100% + 20rem);
+      z-index: 9;
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      background-position: 50%;
+      background-image: url("#{$urlImg}noise.png");
+      pointer-events: none;
+      animation: noise 1s steps(2) infinite;
+    }
+
+    &:before {
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #B2FF02;
+      border-radius: 0 0 0 0;
+      box-shadow: 0 0 0 calc(160vw / 2 + 160vh / 2) $primary;
+    }
+
+    .navbar__content {
+      flex-direction: column;
+      padding-right: 0;
+      padding-left: 0;
+      justify-content: flex-start;
+
+      height: 100vh;
+    }
+
+    .navbar-left {
+      padding-right: 25px;
+      padding-left: 25px;
+      padding-bottom: 37px;
+
+      .logo {
+        &__image svg {
+          fill: $black;
+        }
+
+        &__dot-icon svg {
+          fill: $black;
+        }
+      }
+    }
+
+    .navbar-right {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 25px;
+      padding-left: 25px;
+
+      .works .social-title,
+      .contact .contact-title {
+        display: flex;
+      }
+
+      .works, .social, .contact .address {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .works, .contact .address {
+        margin-bottom: 28px;
+        border-bottom: 1px solid $black;
+
+        & > * {
+          margin-bottom: 6px;
+        }
+      }
+
+      .social {
+        padding-top: 19px;
+        padding-bottom: 57px;
+
+        .social-link {
+          width: 70.62px;
+          height: 70.62px;
+          background-color: $black;
+        }
+
+        .dribblle-icon {
+          width: 34.42px;
+          height: 34.41px;
+        }
+
+        .behance-icon {
+          width: 34.67px;
+          height: 21.68px;
+        }
+
+        .instagram-icon {
+          width: 34.61px;
+          height: 34.63px;
+        }
+      }
+
+      .contact {
+        margin-bottom: 50px;
+
+        .container {
+          padding-right: 0;
+          padding-left: 0;
+        }
+
+        .email-link {
+          font-size: 27px;
+          font-weight: 500;
+          line-height: 27px;
+          text-decoration-line: underline;
+          display: inline-flex;
+          flex-direction: column;
+          font-style: normal;
+
+          .email-big-text {
+            font-size: 60px;
+            line-height: 60px;
+            font-style: normal;
+          }
+
+          i {
+            font-style: normal;
+          }
+        }
+      }
+
+      .phone-link {
+        font-size: 27px;
+        font-weight: 500;
+        line-height: 34px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .navbar.sidebar-open {
+    .navbar-left,
+    .navbar-right {
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+  }
+}

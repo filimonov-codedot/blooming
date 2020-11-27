@@ -1,0 +1,181 @@
+body {
+  font-family: "AkzidenzGroteskPro";
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 18px;
+  position: relative;
+  overflow: hidden;
+  color: $white;
+  background-color: $black;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+#mainText {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (min-width: 576px) {
+  body {
+    font-size: 18px;
+    line-height: 23px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 51px;
+  height: 51px;
+  border: 1px solid $primary;
+  border-radius: 50%;
+}
+
+.icon {
+  display: inline-flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mask {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .glitch-link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    cursor: pointer;
+    user-select: none;
+    transition: transform .8s cubic-bezier(0.5, 1, 0.89, 1);
+
+
+    &:hover {
+      &:before {
+        transform: translateY(-50%) scaleY(1.5);
+      }
+    }
+
+    &:before {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: -18px;
+      width: 100%;
+      height: 80%;
+      padding: 0 15px;
+      content: '';
+      transition: all .8s cubic-bezier(0.5, 1, 0.89, 1);
+    }
+
+    // to prevent jank when :before div slides away from pointer
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: -18px;
+      width: 100%;
+      height: 100%;
+      padding: 0 15px;
+      content: '';
+    }
+
+    // glitch effect
+    .mask {
+      position: absolute;
+      display: none;
+
+      overflow: hidden;
+      width: 100%;
+      height: 20%;
+      -webkit-backface-visibility: hidden;
+
+      span {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+    }
+
+    $i: 6;
+    $steps: $i;
+    @while $i > 1 {
+      .mask:nth-child(#{$i}) {
+        top: ($i - 1) * 20%;
+
+        span {
+          top: -($i - 1) * 100%;
+        }
+      }
+      $i: $i - 1;
+    }
+
+    &:hover {
+      .label {
+        animation: fade-in .8s both;
+      }
+
+      .mask {
+        display: block;
+      }
+
+      $j: 6;
+      $steps: $j;
+      @while $j > 1 {
+        .mask:nth-child(#{$j}) {
+          animation: jitter-20-#{19+$j}-8 .3s both;
+        }
+        $j: $j - 1;
+      }
+    }
+  }
+}
+
+.delay, .canvas {
+  transition: opacity .5s;
+  opacity: 0;
+}
+
+html * {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+i {
+  font-style: normal;
+}

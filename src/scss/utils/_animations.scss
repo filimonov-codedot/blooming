@@ -1,0 +1,88 @@
+// background noise
+@keyframes noise {
+  0% {
+    transform: translate3d(0, 9rem, 0)
+  }
+  10% {
+    transform: translate3d(-1rem, -4rem, 0)
+  }
+  20% {
+    transform: translate3d(-8rem, 2rem, 0)
+  }
+  30% {
+    transform: translate3d(9rem, -9rem, 0)
+  }
+  40% {
+    transform: translate3d(-2rem, 7rem, 0)
+  }
+  50% {
+    transform: translate3d(-9rem, -4rem, 0)
+  }
+  60% {
+    transform: translate3d(2rem, 6rem, 0)
+  }
+  70% {
+    transform: translate3d(7rem, -8rem, 0)
+  }
+  80% {
+    transform: translate3d(-9rem, 1rem, 0)
+  }
+  90% {
+    transform: translate3d(6rem, -5rem, 0)
+  }
+  to {
+    transform: translate3d(-7rem, 0, 0)
+  }
+}
+
+// hover link animation
+@media (min-width: 1024px) {
+  @include jitter(20, 20, 8);
+  @include jitter(20, 21, 8);
+  @include jitter(20, 22, 8);
+  @include jitter(20, 23, 8);
+  @include jitter(20, 24, 8);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// dot
+@keyframes easeInBounce {
+  0% {
+    transform: translateY(0%);
+  }
+  4% {
+    transform: translateY(-10.54%);
+  }
+  8% {
+    transform: translateY(-0.66%);
+  }
+  18% {
+    transform: translateY(-60.25%);
+  }
+  26% {
+    transform: translateY(-10.63%);
+  }
+  46% {
+    transform: translateY(-240.98%);
+  }
+  64% {
+    transform: translateY(-10.99%);
+  }
+  76% {
+    transform: translateY(-560.44%);
+  }
+  88% {
+    transform: translateY(-890.11%);
+  }
+  100% {
+    transform: translateY(-1000%);
+  }
+}

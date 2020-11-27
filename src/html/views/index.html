@@ -1,0 +1,22 @@
+<% var data = {
+  title: "Blooming design",
+  description: "Blooming design",
+  keywords: "blooming design, blooming, design",
+
+  phoneTitle: "778-222-2122",
+  phoneLink: "7782222122",
+  ourWorksLink: "#",
+  address: "Vancouver / Canada",
+  emailTitleFirstPart: "studio",
+  emailTitleSecondPart: "@bloomingdesign.ca",
+  emailLink: "studio@bloomingdesign.ca",
+  behanceLink: "https://www.behance.net/bloomingdesign1",
+  dribbbleLink: "https://dribbble.com/BloomingDsgn",
+  instagramLink: "https://www.instagram.com/bloomingdsgn/",
+}; %>
+
+<%= _.template(require('./../includes/header.html').default)(data) %>
+
+<%= _.template(require('./../includes/content.html').default)(data) %>
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>

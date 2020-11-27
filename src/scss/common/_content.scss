@@ -1,0 +1,95 @@
+.main {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &__content {
+    overflow: hidden;
+    margin-left: 0;
+    transform: perspective(1217px) rotateY(-20deg);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, .8), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  }
+
+  &__text {
+    font-family: "Recoleta";
+    font-size: 30px;
+    font-weight: 900;
+    font-style: normal;
+    line-height: 31px;
+    overflow: auto;
+    height: 120vh;
+    padding-top: 114px;
+    padding-bottom: 180px;
+    text-align: right;
+    //word-wrap: break-word;
+
+    //hyphens: auto;
+    color: $primary;
+  }
+}
+
+@media (min-width: 576px) {
+  .main {
+    &__content {
+      margin-left: 0;
+      margin-right: 3%;
+    }
+
+    &__text {
+      font-size: 54px;
+      line-height: 51px;
+      padding-top: 159px;
+      padding-bottom: 229px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    &__content {
+      margin-right: 2%;
+      margin-left: 239px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0),
+              rgba(0, 0, 0, .1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1),
+              rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    }
+
+    &__text {
+      font-size: 67px;
+      line-height: 63px;
+      padding-top: calc(179px + 8vw);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .main {
+    &__content {
+      margin-left: 319px;
+      margin-right: 3%;
+    }
+
+    &__text {
+      font-size: 80px;
+      line-height: 76px;
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .main {
+    &__content {
+      margin-right: 6%;
+    }
+
+    &__text {
+      font-size: 115px;
+      line-height: 110px;
+    }
+  }
+}
